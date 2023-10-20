@@ -1,0 +1,71 @@
+Detailed edge, positive, and negative scenarios for testing the Geolocation API:
+
+### Positive Scenarios:
+
+1. *Testing with Different Carriers and Non-English Characters:*
+   - Send requests with various carriers, both common and uncommon ones.
+   - Ensure that the API can successfully locate the device with different carriers.
+
+2. *Validating Response Location:*
+   - Send requests with known input data (e.g., fixed coordinates and cell tower information).
+   - Verify that the API returns the expected location coordinates in the response.
+
+3. *Testing with Multiple Wi-Fi Networks:*
+   - Send requests with multiple Wi-Fi networks in the `wifiAccessPoints` field.
+   - Confirm that the API correctly calculates the device's location using the multiple Wi-Fi signals.
+
+4. *Requesting Location by IP Address:*
+   - Verify that the API can accurately determine the device's location -
+      - Set `considerIp` to `true` while omitting other parameters.
+      - Set `considerIp` to `false` api should determine location based on wifi and cell tower
+
+5. *Testing with different combinations of homeMobileCountryCode - radioType - homeMobileNetworkCode:*
+   - homeMobileCountryCode
+       - radioType gsm (default), wcdma, lte and nr within valid range 0-999.
+   - homeMobileNetworkCode
+       - MNC: 0–999. for radioType GSM, WCDMA, LTE and NR.
+       - SID: 0–32767. for radioType CDMA
+
+### Negative Scenarios:
+
+6. *Sending a Blank Request:*
+   - Send an empty POST request to the API.
+   - Verify that the API responds with a 400 (Bad Request) status or provides an error message.
+
+7. *Invalid API Key Format:*
+   - Send a request with an API key in an incorrect format (e.g., too short, containing special characters).
+   - Check that the API responds with a descriptive error message.
+
+8. *Unsupported HTTP Method:*
+   - Send a GET request instead of a POST request.
+   - Confirm that the API returns a 405 (Method Not Allowed) status.
+
+9. *Negative Location Test:*
+   - Send a request with a location that is not plausible (e.g., latitudes and longitudes far from each other).
+   - Ensure that the API handles such requests and returns an error response.
+
+10. *Testing with Special Characters in Request Payload:*
+    - Include special characters or symbols in the request payload.
+    - Verify that the API correctly parses and processes the payload.
+
+### Edge Scenarios:
+
+11. *Testing with edge values of homeMobileCountryCode*
+    - MNC: 0–999. for radioType gsm (default), wcdma, lte and nr
+
+12. *Testing with edge values of homeMobileNetworkCode*
+    - MNC: 0–999. for GSM, WCDMA, LTE and NR.
+    - SID: 0–32767. for CDMA
+
+13. *Testing with edge values of locationAreaCode*
+    - Valid range with gsm, cdma, wcdma and lte: 0–65535.
+    - Valid range with nr: 0–16777215.
+
+14. *Testing with edge values of mobileCountryCode*
+    - Valid range for gsm (default), wcdma, lte and nr: 0-999
+
+15. *Testing with edge values of MobileNetworkCodes:*
+    - Valid range for MNC: 0–999.
+    - Valid range for SID: 0–32767.
+
+Each of these scenarios are tested, and assertions added to confirm the expected behavior and response from the API. These tests will help ensure the robustness of your automation framework and the reliability of the Geolocation API.

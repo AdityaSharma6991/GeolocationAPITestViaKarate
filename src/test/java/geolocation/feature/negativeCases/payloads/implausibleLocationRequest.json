@@ -1,0 +1,27 @@
+{
+  "homeMobileCountryCode": 310,
+  "homeMobileNetworkCode": 410,
+  "radioType": "gsm",
+  "carrier": "Vodafone",
+  "considerIp": false,
+  "cellTowers": [
+    {
+      "cellId": 123456,
+      "locationAreaCode": 7890,
+      "mobileCountryCode": 310,
+      "mobileNetworkCode": 410,
+      "age": 0,
+      "signalStrength": -60,
+      "timingAdvance": 15
+    }
+  ],
+  "wifiAccessPoints": [
+    {
+      "macAddress": "9c:1c:12:b0:45:f1",
+      "signalStrength": -43,
+      "signalToNoiseRatio": 0,
+      "channel": 11,
+      "age": 0
+    }
+  ]
+}

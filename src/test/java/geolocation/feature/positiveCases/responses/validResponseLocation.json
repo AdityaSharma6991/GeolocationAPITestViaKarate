@@ -1,0 +1,23 @@
+{
+  "withOptionalFieldRequest": {
+    "location": {
+      "lat": 38,
+      "lng": -122
+    },
+    "accuracy": 1480
+  },
+  "withoutOptionalFieldRequest": {
+    "location": {
+      "lat": 27,
+      "lng": 81
+    },
+    "accuracy": 1480
+  },
+  "NR5GCellTower": {
+    "location": {
+      "lat": 38,
+      "lng": -122
+    },
+    "accuracy": 1480
+  }
+}
